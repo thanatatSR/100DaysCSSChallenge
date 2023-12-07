@@ -162,12 +162,15 @@
 
 <script>
   let clickCount = 0
-const boom = () => {  
+  const boom = () => {  
+  const elements = ["first", "second", "third"]
   clickCount++
-  console.log(clickCount)
-  if (clickCount % 2 !== 0) {  document.getElementById("first").classList.remove('first-reverse');  document.getElementById("second").classList.remove('second-reverse');  document.getElementById("third").classList.remove('third-reverse');  document.getElementById("first").classList.add('first-active');  document.getElementById("second").classList.add('second-active');  document.getElementById("third").classList.add('third-active');
-  } else {  document.getElementById("first").classList.remove('first-active');  document.getElementById("second").classList.remove('second-active');  document.getElementById("third").classList.remove('third-active');  document.getElementById("first").classList.add('first-reverse');  document.getElementById("second").classList.add('second-reverse');  document.getElementById("third").classList.add('third-reverse');
-  }
+  elements.forEach((el) => {
+    const element = document.getElementById(el)
+    const isActive = clickCount % 2 !== 0;
+    element.classList.remove(isActive ? `${el}-reverse` : `${el}-active`)
+    element.classList.add(isActive ? `${el}-active` : `${el}-reverse`)
+  })
 }
 </script>
   
