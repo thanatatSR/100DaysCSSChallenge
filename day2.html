@@ -1,0 +1,173 @@
+<div class="frame">
+  <div class="center">
+    <div class="box" onclick="boom()">
+    <div id="first" class="first"></div>
+    <div id="second" class="second"></div>
+    <div id="third" class="third"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+	overflow: hidden;
+  background: #3eaf82;
+  color: #333;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.box {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.first {
+  position: absolute;
+  width: 80px;
+  height: 8px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-300%);
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  background: white;
+  z-index: 0
+}
+
+.second {
+  position: absolute;
+  width: 80px;
+  height: 8px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  background: white;
+  z-index: -1
+}
+
+.third {
+  position: absolute;
+  width: 80px;
+  height: 8px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,200%);
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  background: white;
+  z-index: 1
+}
+
+.first-active {
+  animation: sneak1 0.7s forwards;
+}
+
+.first-reverse {
+  animation: reversesneak1 0.7s forwards
+}
+
+.second-active {
+  animation: sneak2 0.7s forwards;
+}
+
+.second-reverse {
+  animation: reversesneak2 0.7s forwards;
+}
+
+.third-active {
+  animation: sneak3 0.7s forwards;
+}
+
+.third-reverse {
+  animation: reversesneak3 0.7s forwards;
+}
+
+@keyframes sneak1 {
+  0% {
+        transform: translate(-50%, -300%) rotate(0deg);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+@keyframes reversesneak1 {
+  100% {
+        transform: translate(-50%, -300%) rotate(0deg);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    0% {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+@keyframes sneak2 {
+  0% {width: 80px;}
+  100% {width: 0px;}
+}
+
+@keyframes reversesneak2 {
+  0% {width: 0px;}
+  50% {width: 0px;}
+  100% {width: 80px;}
+}
+
+@keyframes sneak3 {
+  0% {
+        transform: translate(-50%, 200%) rotate(0deg);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(135deg);
+    }
+}
+
+@keyframes reversesneak3 {
+    0% {
+        transform: translate(-50%, -50%) rotate(135deg);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+  100% {
+        transform: translate(-50%, 200%) rotate(0deg);
+    }
+}
+</style>
+
+<script>
+  let clickCount = 0
+const boom = () => {  
+  clickCount++
+  console.log(clickCount)
+  if (clickCount % 2 !== 0) {  document.getElementById("first").classList.remove('first-reverse');  document.getElementById("second").classList.remove('second-reverse');  document.getElementById("third").classList.remove('third-reverse');  document.getElementById("first").classList.add('first-active');  document.getElementById("second").classList.add('second-active');  document.getElementById("third").classList.add('third-active');
+  } else {  document.getElementById("first").classList.remove('first-active');  document.getElementById("second").classList.remove('second-active');  document.getElementById("third").classList.remove('third-active');  document.getElementById("first").classList.add('first-reverse');  document.getElementById("second").classList.add('second-reverse');  document.getElementById("third").classList.add('third-reverse');
+  }
+}
+</script>
+  
