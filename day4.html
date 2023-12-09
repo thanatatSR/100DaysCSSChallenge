@@ -1,0 +1,106 @@
+<div class="frame">
+  <div class="center">
+		<div class="big">
+		  <div class="mid">
+		    <div class="small"></div>
+		  </div>
+		</div>
+  </div>
+</div>
+<style>
+  .frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+  background: #e56262;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.big {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  top: 50%;
+  left: 50%;
+  border-radius: 100%;box-shadow: 12px 12px 15px 0 rgba(0,0,0,0.4);
+  transform: translate(-50%,-50%);
+  background: white;
+  animation: big 5s infinite
+}
+
+.mid {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 50%;
+  left: 50%;
+  border-radius: 100%;
+  box-shadow: 12px 12px 15px 0 rgba(0,0,0,0.4);
+  transform: translate(-50%,-50%);
+  background: white;
+  animation: mid 5s infinite;
+/*   animation-delay: 1s */
+}
+
+.small {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  left: 50%;
+  border-radius: 100%;
+  box-shadow: 10px 10px 15px 0 rgba(0,0,0,0.4);
+  transform: translate(-50%,-50%);
+  background: white;
+  animation: small 5s infinite
+}
+
+@keyframes big {
+  0% {
+  width: 0px;
+  height: 0px;}
+  25%, 58% {
+  width: 90px;
+  height: 90px;}
+  100% {
+  width: 0px;
+  height: 0px;}
+}
+
+@keyframes mid {
+  0%, 13% {
+  width: 0px;
+  height: 0px;}
+  30%, 50% {
+  width: 60px;
+  height: 60px;}
+  85%, 100% {
+  width: 0px;
+  height: 0px;}
+}
+
+@keyframes small {
+  0%, 25% {
+  width: 0px;
+  height: 0px;}
+  35%, 45% {
+  width: 30px;
+  height: 30px;}
+  60%, 100% {
+  width: 0px;
+  height: 0px;}
+}
+
+</style>
